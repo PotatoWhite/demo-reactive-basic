@@ -3,3 +3,6 @@ spring:
     url: r2dbc:pool:postgres://localhost:5432/reactive_basic
     username: potato
     password: test1234
+  redis:
+    host: localhost
+    port: 6379

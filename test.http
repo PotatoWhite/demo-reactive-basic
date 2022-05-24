@@ -9,3 +9,9 @@ Content-Type: application/json
 
 ###
 GET localhost:8080/users
+
+###
+GET localhost:8080/cached5/users
+
+###
+GET localhost:8080/cached/users/1
