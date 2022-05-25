@@ -18,7 +18,7 @@ public class UserAggregate {
     private final UserRepository userRepository;
 
     public Mono<User> findById(Long id){
-        return userRepository.findById(id).log();
+        return userRepository.findById(id).cache().log();
     }
 
     public Mono<User> findByIdOnCache(Long id){

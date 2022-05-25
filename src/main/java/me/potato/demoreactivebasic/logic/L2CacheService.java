@@ -37,7 +37,7 @@ public class L2CacheService {
                 .switchIfEmpty(
                         userAggregate.findById(id)
                                 .doOnSuccess(user -> reactiveRedisTemplate.opsForValue().set(id.toString(), user, Duration.ofSeconds(30)).subscribe())
-                );
+                ).cache().log();
     }
 }
 

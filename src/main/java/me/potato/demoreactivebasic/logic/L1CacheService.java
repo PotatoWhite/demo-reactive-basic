@@ -30,6 +30,6 @@ public class L1CacheService {
                 .switchIfEmpty( l2CacheService
                         .findById(id)
                         .doOnSuccess(user -> L1_CACHED_USER.put(id.toString(), user))
-                );
+                ).cache().log();
     }
 }
