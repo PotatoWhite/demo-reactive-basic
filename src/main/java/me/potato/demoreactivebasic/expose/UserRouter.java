@@ -25,7 +25,6 @@ public class UserRouter {
     RouterFunction<ServerResponse> userRouterConfig(UserAggregate userAggregate, L1CacheService l1CacheService, L2CacheService l2CacheService) {
         return route()
                 .GET("/users", request -> ok().body(userAggregate.findAll(), User.class))
-                .GET("/cached/users", request -> ok().body(l2CacheService.findAll(), User.class))
                 .GET("/users/{id}", request -> ok().body(userAggregate.findById(Long.parseLong(request.pathVariable("id"))), User.class))
                 .GET("/cached/users/{id}", request -> ok().body(l1CacheService.findById(Long.parseLong(request.pathVariable("id"))), User.class))
                 .POST("/users",
